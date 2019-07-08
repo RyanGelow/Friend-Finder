@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friend Finder</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- CSS  -->
+  <link type="text/css" rel="stylesheet" href="./css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="./css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="./css/style.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background: white;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="./home.html" class="brand-logo">Friend Finder</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="./signup.html">You're Doing It!</a></li>
+        <li><a href="./login.html">Log In</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="./signup.html">You're Doing It!</a></li>
+        <li><a href="./login.html">Log In</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br>
+      <h1 class="header center orange-text">Let's Get You In.</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">How's your friend finding unfolding?</h5>
+      </div>
+      <div class="row">
+        <form class="col s12 m6">
+          <div class="input-field">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input id="password" type="password" class="validate">
+            <label for="password">Enter Password</label>
+          </div>
+        </form>                            
+      </div>
+      <div>
+        <a class="waves-effect waves-light btn" id="identity" onclick="createProfile()"><i class="material-icons left">person_outline</i>Log In</a>
+      </div>
+      <br><br>
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of people that needed friends, so we created a system that would bring friends to us. Little did we know it could help so many other people. I mean who out there couldn't use another friend and the means to find one that doesn't involve wasting your time and putting yourself out there, all vulnerable and shit. No thank you. Our jam is peak Swayze.</p>    
+        </div>
+        <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li><a class="white-text" href="#!">TBD</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">TBD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="#">Rynomics</a>
+      </div>
+    </div>  
+  </footer>
+
+  <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+      function openForm() {
+        // document.getElementById("myForm").style.display = "block";
+        $('#myForm').toggle();
+      }
+
+      function updateImage(event) {
+        let newImageSrc = $(`#image`).val();
+        if(newImageSrc === "" || newImageSrc === "enter image link") {
+          $(`#image`).val("Please enter image link")
+        }else{
+          $('.profile-image img').attr('src', newImageSrc);
+        }
+        if($('.profile-image img').height() < 100) {
+          $('.profile-image img').attr('src', 'https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg');
+          $(`#image`).val("Please enter larger image");
+        }
+        $('#myForm').toggle();
+      }
+      
+      function closeForm() {
+        $('#myForm').toggle();
+      }
+      function createProfile() {
+
+      }
+
+
+    </script>
+  </body>
+</html>
