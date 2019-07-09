@@ -59,22 +59,20 @@
                 </form>                            
                 <div class="col s8 offset-s2 m4 offset-m1 ">
                     <div class="card">
-                        <div class="card-image profile-image">
-                            <img src="https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg">
+                        <div class="card-image waves-effect waves-block waves-light profile-image">
+                            <img class="activator" src="https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg">
                         </div>
-                        <div class="card-action">
-                            <a href="#" class="open-button" onclick="openForm()"><i class="material-icons">photo_library</i> Select Photo</a>
+                        <div class="card-content">
+                            <p class="activator grey-text text-darken-4">Update Pic<i class="material-icons right">more_vert</i></p>
                         </div>
-                        <div class="form-popup" id="myForm">
-                            <form class="form-container">
-                                <p>Please enter a recent image link from a social media account or other image of your choosing</p>
-                                <div class="input-field">
-                                    <input id="image" type="text" class="validate" required>
-                                    <label for="link">Image Link</label>
-                                </div>
-                                <button type="submit" class="btn" onclick="updateImage()">Update Photo</button>
-                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                            </form>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>New Photo</span>
+                            <div class="input-field">
+                                <input id="image" type="text" class="validate" required>
+                                <label for="link">Image Link</label>
+                            </div>
+                            <button type="submit" class="btn" onclick="updateImage()">Update Photo</button>
+                            <p>Please enter a recent image link from a social media account or other image of your choosing.</p>
                         </div>
                     </div>
                 </div>
@@ -142,10 +140,10 @@
                 <div class="col s2">
                     <p class="disagree">Disagree</p> 
                 </div>
-                <div class="col s2 offset-s3 right-align">
-                    <strong><p class="center agree">You Tell Me...</p></strong>
+                <div class="col s4 offset-s2">
+                    <p class="center strong agree">You Tell Me...</p>
                 </div>
-                <div class="col s2 offset-s3 right-align">
+                <div class="col s2 offset-s2 right-align">
                     <p class="disagree">Agree</p> 
                 </div>
             </div>
@@ -162,6 +160,8 @@
             <a class="waves-effect waves-light btn see-results q10 hide"><i class="material-icons left">fingerprint</i>See Results</a>
         </div>
         <br><br>
+
+
     </div>
     <footer class="page-footer orange">
         <div class="container">
@@ -199,14 +199,8 @@
 <!-- <script src="./../data/friends.js"></script> -->
 <script src="./js/friendMaker.js"></script>
 <script>
-    function openForm(e) {
-        e.preventDefault();
-        // document.getElementById("myForm").style.display = "block";
-        $('#myForm').toggle();
-    }
 
-    function updateImage(event) {
-        event.preventDefault();
+    function updateImage() {
         let newImageSrc = $(`#image`).val();
         if(newImageSrc === "" || newImageSrc === "enter image link") {
             $(`#image`).val("Please enter image link")
@@ -217,14 +211,7 @@
             $('.profile-image img').attr('src', 'https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg');
             $('#image').val("Please enter larger image");
         }
-        $('#myForm').toggle();
     }
-    
-    function closeForm(e) {
-        e.preventDefault();
-        $('#myForm').toggle();
-    }
-
 
 </script>
 </body>

@@ -17,8 +17,8 @@ const friends = require('./../data/friends')
 
 router.post("/find-friend",function(req, res){
     myvalues = req.body.survey.map(each => Number(each))
-    console.log(myvalues)
-    console.log(friends[0])
+    myvalues
+    friends[0]
 })
 
 
