@@ -150,6 +150,42 @@ $('#log-in').on('click',function () {
         url: "/find-friend", 
         method: "GET"
     }).then(function(data){
-        console.log(data)
+        let user = [];
+        let bestMatch = 0;
+        let minDiff = 40;
+        let scores = [];
+        for(let i = 0; i < data.length; i++) {
+            if($('#email').val() === data[i].email) {
+                if($('#password').val() === data[i].password) {
+                    user = data.splice(i,1)
+                    $('.results').removeClass('hide');
+                    $('img.user-pic').attr('src', user.img_url);
+                    $('.user-name').text(user.first_name + " " + user.last_name);
+                    
+                    let totalDiff = 0;
+                    for(let j = 0; j < data[i].survey.length; j++) {
+                        let diff = Math.abs(user.survey[i] - data[i].survey[j]);
+                        totalDiff += diff;
+                    }
+                    if(totalDiff < minDiff) {
+                        bestMatch = i;
+                        minDiff = totalDiff;
+                    }
+                    scores.push(totalDiff)
+
+                    let matchName = data[bestMatch].first_name + " " + data[bestMatch].last_name;
+                    let matchImg = data[bestMatch].img_url;
+                    let percentMatch = ((1 - (Math.min(...scores)/40))*100).toFixed(2);
+                    $('img.friend-pic').attr('src', matchImg);
+                    $('.friend-name').text(matchName);
+                    $('.analysis-results').text(percentMatch)
+
+                } else{
+                    $('#password').val("Not a valid password");
+                }
+            }else {
+                $('#email').val("Not a valid email");
+            }
+        }
     })
 })
