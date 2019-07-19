@@ -23,11 +23,23 @@
 
     3.  Login: Let's past users log back in via email and password, where your friend match will be immediately reaccessed based on the lastest friend updates. 
 
-3. Link to app: https://ryangelow.github.io/Friend-Finder/
+3. Here are a few photos of the app in progress:
 
-4. Technologies/npm package used:
+    ![Home Screen](https://github.com/RyanGelow/Friend-Finder/blob/master/images/home-screen.png)
+    ![Sign Up](https://github.com/RyanGelow/Friend-Finder/blob/master/images/sign-up.png)
+    ![Question 1](https://github.com/RyanGelow/Friend-Finder/blob/master/images/question-1.png)
+
+    ![Question 4](https://github.com/RyanGelow/Friend-Finder/blob/master/images/question-4.png)
+    ![Last Question](https://github.com/RyanGelow/Friend-Finder/blob/master/images/last-question.png)
+    ![See Results](https://github.com/RyanGelow/Friend-Finder/blob/master/images/see-results.png)
+    ![Final Comparison](https://github.com/RyanGelow/Friend-Finder/blob/master/images/final-comparison.png)
+    
+
+4. Link to app: https://ryangelow.github.io/Friend-Finder/
+
+5. Technologies/npm package used:
     
     * express
  
-5. List of key individuals:
+6. List of key individuals:
     * Lead-Developer: Ryan Gelow
