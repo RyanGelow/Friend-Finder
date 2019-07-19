@@ -26,12 +26,17 @@
 3. Here are a few photos of the app in progress:
 
     ![Home Screen](https://github.com/RyanGelow/Friend-Finder/blob/master/images/home-screen.png)
-    ![Sign Up](https://github.com/RyanGelow/Friend-Finder/blob/master/images/sign-up.png)
-    ![Question 1](https://github.com/RyanGelow/Friend-Finder/blob/master/images/question-1.png)
 
+    ![Sign Up](https://github.com/RyanGelow/Friend-Finder/blob/master/images/sign-up.png)
+    
+    ![Question 1](https://github.com/RyanGelow/Friend-Finder/blob/master/images/question-1.png)
+    
     ![Question 4](https://github.com/RyanGelow/Friend-Finder/blob/master/images/question-4.png)
+    
     ![Last Question](https://github.com/RyanGelow/Friend-Finder/blob/master/images/last-question.png)
+    
     ![See Results](https://github.com/RyanGelow/Friend-Finder/blob/master/images/see-results.png)
+    
     ![Final Comparison](https://github.com/RyanGelow/Friend-Finder/blob/master/images/final-comparison.png)
     
 
@@ -39,7 +44,8 @@
 
 5. Technologies/npm package used:
     
-    * express
+    * Express
+    * Materialize
  
 6. List of key individuals:
     * Lead-Developer: Ryan Gelow
