@@ -13,4 +13,8 @@ router.get("/survey", function(req, res) {
     res.sendFile(path.join(__dirname, "./../public/survey.html"));
 });
 
+router.get("/login", function(req, res) {
+    res.sendFile(path.join(__dirname, "./../public/login.html"));
+});
+
 module.exports = router;

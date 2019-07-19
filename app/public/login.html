@@ -48,7 +48,7 @@
       <br>
       <h1 class="header center orange-text">Let's Get You In.</h1>
       <div class="row center">
-        <h5 class="header col s12 light">How's your friend finding unfolding?</h5>
+        <h5 class="header col s12 light">Will there be a new match today?</h5>
       </div>
       <div class="row">
         <form class="col s12 m6">
@@ -63,10 +63,45 @@
         </form>                            
       </div>
       <div>
-        <a class="waves-effect waves-light btn" id="identity" onclick="createProfile()"><i class="material-icons left">person_outline</i>Log In</a>
+        <a class="waves-effect waves-light btn" id="log-in"><i class="material-icons left">person_outline</i>Log In</a>
       </div>
       <br><br>
     </div>
+    <br><br>
+  </div>
+  
+  <div class="container results hide">
+    
+    <div class="row final-cards">
+      
+      <div class="col s4 offset-s1">
+        <div class="card">
+          <div class="card-image">
+            <img class="user-pic" src="" alt="User Picture">
+          </div>
+          <div class="card-content">
+            <h5 class="card-title center user-name"></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s4 offset-s2">
+        <div class="card">
+          <div class="card-image">
+            <img class="friend-pic" src="" alt="Friend Pricture">
+          </div>
+          <div class="card-content">
+            <h5 class="card-title center friend-name"></h5>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="row">
+      <h5 class="center">Your friendship match was <span class="analysis-results"></span>%</h5>
+    </div>
+    
     <br><br>
   </div>
 
@@ -93,7 +128,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        Made by <a class="orange-text text-lighten-3" href="#">Rynomics</a>
+        Made by <a class="orange-text text-lighten-3" href="#">Ryanomics</a>
       </div>
     </div>  
   </footer>
@@ -102,34 +137,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
-    <script>
-      function openForm() {
-        // document.getElementById("myForm").style.display = "block";
-        $('#myForm').toggle();
-      }
-
-      function updateImage(event) {
-        let newImageSrc = $(`#image`).val();
-        if(newImageSrc === "" || newImageSrc === "enter image link") {
-          $(`#image`).val("Please enter image link")
-        }else{
-          $('.profile-image img').attr('src', newImageSrc);
-        }
-        if($('.profile-image img').height() < 100) {
-          $('.profile-image img').attr('src', 'https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg');
-          $(`#image`).val("Please enter larger image");
-        }
-        $('#myForm').toggle();
-      }
-      
-      function closeForm() {
-        $('#myForm').toggle();
-      }
-      function createProfile() {
-
-      }
-
-
-    </script>
+    <script src="js/app.js"></script>
   </body>
 </html>

@@ -1,5 +1,4 @@
 let friends = [
-
     {
         first_name: "Ahmed",
         last_name: "Ahmed",

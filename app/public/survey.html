@@ -159,9 +159,38 @@
             <a class="waves-effect waves-light btn last-question q9 hide"><i class="material-icons left">fingerprint</i>Last Question</a>
             <a class="waves-effect waves-light btn see-results q10 hide"><i class="material-icons left">fingerprint</i>See Results</a>
         </div>
-        <br><br>
+    </div>
+    <br><br>
+    <div class="container results hide">
+        <div class="row final-cards">
+            <div class="col s4 offset-s1">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="user-pic" src="" alt="User Picture">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title center user-name"></h5>
+                    </div>
+                </div>
+            </div>
 
-
+            <div class="col s4 offset-s2">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="friend-pic" src="" alt="Friend Pricture">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title center friend-name"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 class="center">Your friendship match was <span class="analysis-results"></span>%</h5>
+        </div>
+        <div class="row">
+            <a class="waves-effect waves-light btn friend-submit q1"><i class="material-icons left">face</i>Join Friend Finder</a>
+        </div>
     </div>
     <footer class="page-footer orange">
         <div class="container">
@@ -187,7 +216,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-              Made by <a class="orange-text text-lighten-3" href="#">Rynomics</a>
+              Made by <a class="orange-text text-lighten-3" href="#">Ryanomics</a>
             </div>
         </div>  
     </footer>
@@ -197,7 +226,7 @@
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 <!-- <script src="./../data/friends.js"></script> -->
-<script src="./js/friendMaker.js"></script>
+<script src="./js/app.js"></script>
 <script>
 
     function updateImage() {

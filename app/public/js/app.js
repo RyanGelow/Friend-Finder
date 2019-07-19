@@ -7,6 +7,7 @@ let newFriend = {
     survey: []
 }
 
+
 $(".build-profile").on('click', function(){
     newFriend.first_name = $("#first_name").val().trim();
     newFriend.last_name = $("#last_name").val().trim();
@@ -78,7 +79,6 @@ $(".see-results").on('click', function(){
         $('.agree').text("Please adjust slider");
     }else{
         newFriend.survey.push(output)
-        // friendList.friends.push(newFriend)
         $.post("/api/data/friends.js", newFriend)
         .then(function(data) {
             console.log("survey.html", data);
@@ -89,27 +89,67 @@ $(".see-results").on('click', function(){
     }
 })
 
-let testFriend = {
-    first_name: "Ryan",
-    last_name: "G",
-    email: "ryan@fake.com",
-    password: "abc123",
-    img_url: "",
-    survey: [4,4,3,4,2,2,3,4,5,5]
-}
+// let testFriend = {
+//     first_name: "Ryan",
+//     last_name: "G",
+//     email: "ryan@fake.com",
+//     password: "abc123",
+//     img_url: "https://wowxwow.com/wp-content/uploads/2016/12/SListfield-Pink-Square.jpg",
+//     survey: [4,4,3,4,2,2,3,4,5,5]
+// }
 
 function analyzeFriends() {
-    // for(let i = 0; i < 10; i++) {
-    //     const scoreLine = parseInt(newFriend.survey[i]);
-    //     for (let f = 0; f < (friendList.friends.length - 1); f++){
-    //         const matchLine = parseInt(friendList.friends[f].survey[i]);
-    //         let lineDiff = [f];
-    //         lineDiff.push(Math.abs(scoreLine - matchLine));
-    //         const reducer = (total, num) => total + num;
-    //         lineDiff.reduce(reducer);
-    //     }
-    // }
-    $.post("/find-friend", newFriend).then(function(response){
-        console.log(response)
+    $('.results').removeClass('hide');
+    $('img.user-pic').attr('src', newFriend.img_url);
+    $('.user-name').text(newFriend.first_name + " " + newFriend.last_name);
+    $.ajax({
+        url: "/find-friend", 
+        method: "GET"
+    }).then(function(friendList){
+        
+        for(let i = 0; i < newFriend.survey.length; i++) {
+            newFriend.survey[i] = parseInt(newFriend.survey[i]) 
+        }
+
+        let bestMatch = 0;
+        let minDiff = 40;
+        let scores = [];
+        
+        for(let i = 0; i < friendList.length; i++) {
+            let totalDiff = 0;
+            for(let j = 0; j < friendList[i].survey.length; j++) {
+                let diff = Math.abs(newFriend.survey[i] - friendList[i].survey[j]);
+                totalDiff += diff;
+            }
+            if(totalDiff < minDiff) {
+                bestMatch = i;
+                minDiff = totalDiff;
+            }
+            scores.push(totalDiff)
+        }
+        let matchName = friendList[bestMatch].first_name + " " + friendList[bestMatch].last_name;
+        let matchImg = friendList[bestMatch].img_url;
+        let percentMatch = ((1 - (Math.min(...scores)/40))*100).toFixed(2);
+        $('img.friend-pic').attr('src', matchImg);
+        $('.friend-name').text(matchName);
+        $('.analysis-results').text(percentMatch)
     })
 }
+
+$('.friend-submit').on('click',function () {
+    $.ajax({
+        url: "/find-friend", 
+        method: "POST"
+    }).then(function(data){
+        data.push(newFriend)
+    })
+})
+
+$('#log-in').on('click',function () {
+    $.ajax({
+        url: "/find-friend", 
+        method: "GET"
+    }).then(function(data){
+        console.log(data)
+    })
+})
