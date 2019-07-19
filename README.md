@@ -39,7 +39,8 @@
 
 5. Technologies/npm package used:
     
-    * express
+    * Express
+    * Materialize
  
 6. List of key individuals:
     * Lead-Developer: Ryan Gelow
